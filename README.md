@@ -10,7 +10,7 @@ Al momento de poner nuestra aplicación web en producción, React comete un male
 
 > Ejemplo del problema de hidratación (inicia con login y luego carga la imagen del usuario).
 
-![Alt Text](public\airbnb.gif 'Airbnb error hydratation')
+![Alt Text](https://github.com/Polar502/hook-useHasMounted-nextjs13/blob/main/public/airbnb.gif?raw=true 'Airbnb error hydratation')
 
 ## Solución de rehidratación
 
