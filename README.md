@@ -32,3 +32,11 @@ export function useHasMounted() {
   return hasMounted
 }
 ```
+
+## 2. Deploy on Vercel
+
+Demostración del hook `useHasMounted` en Vercel Deploy [Click Here](https://hook-use-has-mounted-nextjs13.vercel.app/).
+
+```bash
+https://hook-use-has-mounted-nextjs13.vercel.app/
+```
