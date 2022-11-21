@@ -10,7 +10,7 @@ Al momento lanzar nuestra aplicación web, el compilador del navegador toma el p
 
 > Ejemplo del problema de hidratación (inicia con login y luego carga la imagen del usuario).
 
-![Alt Text](https://github.com/Polar502/hook-useHasMounted-nextjs13/blob/main/public/airbnb.gif?raw=true 'Airbnb error hydratation')
+![Alt Text](https://github.com/Polar502/hydratation-render-ssg/blob/main/public/airbnb.gif?raw=true 'Airbnb error hydratation')
 
 ## Solución de rehidratación
 
@@ -121,7 +121,7 @@ export const WelcomeWithHasMounted = () => {
 
 Demostración del hook `useHasMounted` en Vercel Deploy [Click Here](https://hydratation-render-ssg.vercel.app/).
 
-![Alt Text](https://github.com/Polar502/hook-useHasMounted-nextjs13/blob/main/public/airbnb.gif?raw=true 'Demo App')
+![Alt Text](https://github.com/Polar502/hydratation-render-ssg/blob/main/public/demo.gif?raw=true 'Demo App')
 
 ```bash
 https://hydratation-render-ssg.vercel.app/
