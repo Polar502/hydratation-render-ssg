@@ -121,6 +121,8 @@ export const WelcomeWithHasMounted = () => {
 
 Demostración del hook `useHasMounted` en Vercel Deploy [Click Here](https://hydratation-render-ssg.vercel.app/).
 
+![Alt Text](https://github.com/Polar502/hook-useHasMounted-nextjs13/blob/main/public/airbnb.gif?raw=true 'Demo App')
+
 ```bash
 https://hydratation-render-ssg.vercel.app/
 ```
