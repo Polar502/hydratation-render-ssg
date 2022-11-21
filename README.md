@@ -33,10 +33,20 @@ export function useHasMounted() {
 }
 ```
 
-## 2. Deploy on Vercel
+# Deploy on Vercel
 
 Demostración del hook `useHasMounted` en Vercel Deploy [Click Here](https://hook-use-has-mounted-nextjs13.vercel.app/).
 
 ```bash
 https://hook-use-has-mounted-nextjs13.vercel.app/
+```
+
+# Estrucura del hook hasMounte
+
+## 1. Declaración de variables
+
+Declararemos una constante que se encargara de contener estado booleano del `hasMounted`, inicialmente en false, que indica que aun no se a montado.
+
+```jsx
+const [hasMounted, setHasMounted] = React.useState(false)
 ```

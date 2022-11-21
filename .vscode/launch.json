@@ -1,0 +1,30 @@
+{
+  "version": "1.0.0",
+  "configurations": [
+    {
+      "name": "Dev App",
+      "runtimeVersion": "19.1.0", //nvm version (Node Version Manager) || install → nvm install latest
+      "runtimeArgs": ["next dev"], //npm run dev
+      "env": {
+        "BROWSER": "none"
+      },
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "type": "node"
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Run Chrome",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Debug App",
+      "configurations": ["Dev App", "Run Chrome"], //Los mismos nombres que las configuracioens de arriba
+      "stopAll": true
+    }
+  ]
+}
