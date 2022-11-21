@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { Alert } from './Alert'
 
 const Login = () => {
-  const { login, loginWithGoogle } = useAuth()
+  const { login, loginWithGoogle, resetPassword } = useAuth()
   const router = useRouter()
   const [error, setError] = useState()
 
@@ -34,6 +34,20 @@ const Login = () => {
     try {
       await loginWithGoogle()
       router.push('/')
+    } catch (error) {
+      setError(error.message)
+    }
+  }
+
+  const handleResetPassword = async (e) => {
+    e.preventDefault()
+    if (!user.email)
+      return setError(
+        'Escribe un correo electrónico para restablecer la contraseña'
+      )
+    try {
+      await resetPassword(user.email)
+      setError('Te enviamos un correo electrónico. Revisa tu bandeja de SPAM')
     } catch (error) {
       setError(error.message)
     }
@@ -90,7 +104,7 @@ const Login = () => {
           <a
             className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
             href="#!"
-            // onClick={handleResetPassword}
+            onClick={handleResetPassword}
           >
             Restablecer Contraseña?
           </a>

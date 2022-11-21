@@ -1,13 +1,11 @@
 'use client'
 
 import React, { useState, useRef } from 'react'
-import { useHasMounted } from '../hooks/useHasMounted'
 import { useAuth } from '../contexts/AuthContext'
 import { useRouter } from 'next/navigation'
 
 const Profile = () => {
-  const { user, logout } = useAuth()
-  const hasMounted = useHasMounted()
+  const { user, logout, hasMounted } = useAuth()
   const router = useRouter()
   const [open, setOpen] = useState(false)
 
@@ -82,7 +80,7 @@ const Profile = () => {
     )
   }
 
-  // de lo contrario
+  // de lo contrario photoURL
   return (
     <>
       <div className="flex h-full justify-center items-center">
@@ -91,7 +89,15 @@ const Profile = () => {
           onClick={() => setOpen(!open)}
         >
           <img className="w-5 h-5" src="menu.svg" alt="menu icon" />
-          <img src="userLoggedIn.svg" className="w-8 h-8" alt="user default" />
+          {user.photoURL !== null ? (
+            <img src={user.photoURL} className="w-8 h-8" alt="user photo" />
+          ) : (
+            <img
+              src="userLoggedIn.svg"
+              className="w-8 h-8"
+              alt="user default"
+            />
+          )}
         </button>
       </div>
       {open && (
@@ -102,7 +108,7 @@ const Profile = () => {
           <button
             id="Logout"
             aria-label="Button Logout"
-            className="p-2 cursor-pointer rounded hover:bg-blue-100"
+            className="p-2 cursor-pointer hover:bg-blue-100"
             onClick={() => {
               handleLogout()
               setOpen(false)

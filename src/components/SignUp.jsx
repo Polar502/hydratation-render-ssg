@@ -87,13 +87,6 @@ const SignUp = () => {
           >
             Registrar
           </button>
-          <a
-            className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
-            href="#!"
-            // onClick={handleResetPassword}
-          >
-            Restablecer Contraseña?
-          </a>
         </div>
       </form>
       <button
