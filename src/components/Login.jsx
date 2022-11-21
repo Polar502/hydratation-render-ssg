@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useAuth } from '../contexts/AuthContext'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
@@ -108,7 +108,7 @@ const Login = () => {
         <span className="col-span-2">Continúa con Google</span>
       </button>
       <p className="w-full my-4 flex justify-between px-3">
-        No tienes una cuenta?
+        Aun no tienes una cuenta?
         <Link
           href="/signup"
           className="text-blue-700 hover:text-blue-900 font-semibold"

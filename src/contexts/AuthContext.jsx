@@ -9,7 +9,6 @@ import {
   signInWithPopup,
 } from 'firebase/auth'
 import { auth } from '../configs/firebase'
-import { useHasMounted } from '../hooks/useHasMounted'
 
 export const AuthContext = createContext()
 
@@ -30,7 +29,11 @@ export const AuthProvider = ({ children }) => {
       // Obtener el usuario que ha iniciado sesión actualmente
       setUser(currentUser)
       // Obtener valor de hasMounted como verdadero
-      setHasMounted(true)
+      // Nota: El setTimeout es unicamente para atrasar la carga
+      // y apreciar el efecto de carga
+      setTimeout(() => {
+        setHasMounted(true)
+      }, 2000)
     })
     return () => unsubuscribe()
   }, [])

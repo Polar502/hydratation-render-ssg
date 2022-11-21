@@ -1,16 +1,14 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useAuth } from '../contexts/AuthContext'
-import { useModal } from '../contexts/ModalContext'
 import { useRouter } from 'next/navigation'
-import Modal from './Modal'
+import Link from 'next/link'
 import { Alert } from './Alert'
 
 const SignUp = () => {
-  const { signup } = useAuth()
+  const { signup, loginWithGoogle } = useAuth()
   const router = useRouter()
   const [error, setError] = useState()
-  const [openLogin, setOpenLogin] = useState(false)
 
   const [user, setUser] = useState({
     email: '',
@@ -32,30 +30,92 @@ const SignUp = () => {
     }
   }
 
+  const handleGoogleSignIn = async () => {
+    try {
+      await loginWithGoogle()
+      router.push('/')
+    } catch (error) {
+      setError(error.message)
+    }
+  }
+
   return (
-    <div className="flex flex-row h-full w-[80vw] md:w-[60vw] lg:w-[40vw] justify-center items-center">
+    <div className="flex flex-col h-full w-[90vw] md:w-[60vw] lg:w-[30vw] justify-center items-center pt-5">
       {error && <Alert message={error} />}
 
-      <form className="bg-white" onSubmit={hanleSubmit}>
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="example@email.com"
-          onChange={handleChange}
-        />
+      <form
+        className="flex flex-col w-full bg-white shadow-md rounded px-8 pt-6 pb-8 mb-8"
+        onSubmit={hanleSubmit}
+      >
+        <div className="mb-4">
+          <label
+            htmlFor="email"
+            className="block text-gray-700 text-sm font-bold mb-2"
+          >
+            Email
+          </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            placeholder="example@email.com"
+            onChange={handleChange}
+          />
+        </div>
 
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          onChange={handleChange}
-        />
+        <div className="mb-4">
+          <label
+            htmlFor="password"
+            className="block text-gray-700 text-sm font-bold mb-2"
+          >
+            Password
+          </label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            onChange={handleChange}
+          />
+        </div>
 
-        <button>Resgitrar</button>
+        <div className="flex items-center justify-between">
+          <button
+            className="bg-gradient-to-r from-cyan-500 to-blue-500  hover:from-cyan-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="submit"
+          >
+            Registrar
+          </button>
+          <a
+            className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+            href="#!"
+            // onClick={handleResetPassword}
+          >
+            Restablecer Contraseña?
+          </a>
+        </div>
       </form>
+      <button
+        className="grid grid-cols-4 bg-slate-50 hover:bg-slate-200 text-black shadow rounded border-2 border-gray-300 py-2 px-4 w-full"
+        onClick={handleGoogleSignIn}
+      >
+        <img
+          className="col-span-1 w-6 h-6"
+          src="google.png"
+          alt="icon google"
+        />
+        <span className="col-span-2">Continúa con Google</span>
+      </button>
+      <p className="w-full my-4 flex justify-between px-3">
+        Ya tienes una cuenta?
+        <Link
+          href="/login"
+          className="text-blue-700 hover:text-blue-900 font-semibold"
+        >
+          Inicia Sesión
+        </Link>
+      </p>
     </div>
   )
 }

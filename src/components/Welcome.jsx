@@ -7,7 +7,7 @@ export const WelcomeWithHasMounted = () => {
   if (!hasMounted) {
     return (
       <>
-        <h2 className="my-8">Cargando...</h2>
+        <h2 className="my-8 w-40 bg-slate-400 animate-pulse">Cargando...</h2>
       </>
     )
   }
