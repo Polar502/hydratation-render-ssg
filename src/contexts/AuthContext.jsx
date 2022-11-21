@@ -13,11 +13,11 @@ import { auth } from '../configs/firebase'
 
 export const AuthContext = createContext()
 
-export const useAuth = () => {
-  const context = useContext(AuthContext)
-  if (!context) throw new Error('No hay proveedor de autenticación.')
-  return context
-}
+  export const useAuth = () => {
+    const context = useContext(AuthContext)
+    if (!context) throw new Error('No hay proveedor de autenticación.')
+    return context
+  }
 
 export const AuthProvider = ({ children }) => {
   // contstante para almacenar el valor usuario (inicialmente en vacio)

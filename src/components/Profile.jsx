@@ -80,7 +80,7 @@ const Profile = () => {
     )
   }
 
-  // de lo contrario photoURL
+  // de lo contrario
   return (
     <>
       <div className="flex h-full justify-center items-center">
@@ -88,9 +88,13 @@ const Profile = () => {
           className="flex flex-row justify-center items-center space-x-2 py-1 px-3 border border-gray rounded-full hover:shadow-lg"
           onClick={() => setOpen(!open)}
         >
-          <img className="w-5 h-5" src="menu.svg" alt="menu icon" />
+          <img className="w-5 h-5 " src="menu.svg" alt="menu icon" />
           {user.photoURL !== null ? (
-            <img src={user.photoURL} className="w-8 h-8" alt="user photo" />
+            <img
+              src={user.photoURL}
+              className="w-8 h-8 rounded-[50%]"
+              alt="user photo"
+            />
           ) : (
             <img
               src="userLoggedIn.svg"
